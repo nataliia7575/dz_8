@@ -81,18 +81,18 @@ def get_birthdays_per_week(users):
                         elif user_weekday == 4:
                            names_4.append(user['name'])
                            #print('names_4', names_4)
-            result['Mon'] = names_0
-            result['Tue'] = names_1
-            result['Wed'] = names_2
-            result['Thu'] = names_3
-            result['Fri'] = names_4
-        
-        a = result
-        print('a', a)
-        for key in list(a.keys()):
-            if a[key] == []:
-                   del a[key] 
-    return a
+            if names_0:
+                result['Mon'] = names_0
+            if names_1:
+                result['Tue'] = names_1
+            if names_2:
+                result['Wed'] = names_2
+            if names_3:
+                result['Thu'] = names_3
+            if names_4:
+                result['Fri'] = names_4
+     
+    return result
 
     # Реалізуйте тут домашнє завдання
     
