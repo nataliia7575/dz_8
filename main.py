@@ -58,28 +58,31 @@ def get_birthdays_per_week(users):
                 print(user_weekday)
                 abs_delta_days = delta_days(user_date, today_date)
                 print('abs_delta_days', abs_delta_days)
-            if abs_delta_days > 6:
-                pass
-            else: 
-                if (abs_delta_days <=2) and (user_weekday == 5 or user_weekday == 6):
+            if user_date < today_date:
+                if abs_delta_days <=2 and (user_weekday == 5 or user_weekday == 6):
                     names_0.append(user['name'])
                     print('names_0', names_0)
-                else:
-                    if user_date >= today_date:                 
-                        if user_weekday == 0 or user_weekday == 5 or user_weekday == 6:
-                            names_0.append(user['name'])
-                            #print('names_0', names_0)
-                        elif user_weekday == 1:
-                            names_1.append(user['name'])
-                            #print('names_1', names_1)
-                        elif user_weekday == 2:
-                           names_2.append(user['name'])
-                           #print('names_2', names_2)
-                        elif user_weekday == 3:
-                           names_3.append(user['name'])
-                           #print('names_3', names_3)
-                        elif user_weekday == 4:
-                           names_4.append(user['name'])
+            else:
+                if abs_delta_days <=6:         
+                    if user_weekday == 0:
+                        names_0.append(user['name'])
+                        print('names_0', names_0)
+                    if user_weekday == 1:
+                        names_1.append(user['name'])
+                        print('names_1', names_1)
+                    if user_weekday == 2:
+                        names_2.append(user['name'])
+                        print('names_2', names_2)
+                    if user_weekday == 3:
+                        names_3.append(user['name'])
+                        print('names_3', names_3)
+                    if user_weekday == 4:
+                        names_4.append(user['name'])
+                        print('names_4', names_4)
+                    if user_weekday == 5:
+                        names_0.append(user['name'])
+                    if user_weekday == 6:
+                        names_0.append(user['name'])
                            #print('names_4', names_4)
             if names_0:
                 result['Mon'] = names_0
