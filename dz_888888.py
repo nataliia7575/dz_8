@@ -14,10 +14,9 @@ def convert_user_date(user):
         user_date = birthday_user_date.replace(year=current_year+1)
     return user_date
 
-result = dict()
-names_0, names_1, names_2, names_3, names_4 = list(), list(), list(), list(), list()
-
 def get_birthdays_per_week(users): 
+    result = dict()
+    names_0, names_1, names_2, names_3, names_4 = list(), list(), list(), list(), list()
     if users == list():
        return result 
     else:
