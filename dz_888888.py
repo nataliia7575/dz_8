@@ -1,6 +1,6 @@
 from datetime import date, datetime, timedelta
 
-today_date = date.today() - timedelta(days=21)
+today_date = date.today() - timedelta(days=22)
 print('today_date', today_date)
 
 current_year = today_date.year
