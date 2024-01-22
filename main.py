@@ -5,30 +5,30 @@ def convert_user_date(user):
     current_year = int(today_date.year)
     
     birthday_user_date = user['birthday']
-    birthday_user_moth = user['birthday'].month
+    birthday_user_moth = int(birthday_user_date.month)
+    
     if  birthday_user_moth == 12:
         user_date = birthday_user_date.replace(year=current_year)
     else: 
         user_date = birthday_user_date.replace(year=current_year+1)
     return user_date
 
-def get_birthdays_per_week(users): 
-    today_date = date.today()
-    result = dict()
+def get_birthdays_per_week(users):
+    result=dict()
     names_0, names_1, names_2, names_3, names_4 = list(), list(), list(), list(), list()
+    today_date = date.today()
+    
     if users == list():
        return result 
     else:
         for user in users:
-        
+           
             user_date = convert_user_date(user)
-            #print(user_date)
             user_weekday = int(convert_user_date(user).weekday())
-            #print(user_weekday)
-            delta_days = abs((user_date - today_date).days)
-            #print('delta_days', delta_days)
+            delta_days = int(abs(user_date - today_date).days)
+        
             if user_date < today_date:
-                if (delta_days <=2 and user_weekday == 5 or user_weekday == 6):
+                if delta_days <=2 and (user_weekday == 5 or user_weekday == 6):
                     names_0.append(user['name'])
                     print('names_0', names_0)
             else:
@@ -66,10 +66,7 @@ def get_birthdays_per_week(users):
 
     print(result)   
     return result
-
     # Реалізуйте тут домашнє завдання
-    
-
 
 if __name__ == "__main__":
     users = [
