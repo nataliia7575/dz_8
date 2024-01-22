@@ -1,11 +1,9 @@
-from datetime import date, datetime, timedelta
-
-today_date = date.today()
-print('today_date', today_date)
-
-current_year = today_date.year
+from datetime import date, datetime
 
 def convert_user_date(user):
+    today_date = date.today()
+    current_year = int(today_date.year)
+    
     birthday_user_date = user['birthday']
     birthday_user_moth = user['birthday'].month
     if  birthday_user_moth == 12:
@@ -15,24 +13,22 @@ def convert_user_date(user):
     return user_date
 
 def get_birthdays_per_week(users): 
+    today_date = date.today()
     result = dict()
     names_0, names_1, names_2, names_3, names_4 = list(), list(), list(), list(), list()
     if users == list():
        return result 
     else:
         for user in users:
-            print(user)
         
-            for k, v in user.items():
-                print(k, v)     
-                user_date = convert_user_date(user)
-                print(user_date)
-                user_weekday = int(convert_user_date(user).weekday())
-                print(user_weekday)
-                delta_days = abs((user_date - today_date).days)
-                print('delta_days', delta_days)
+            user_date = convert_user_date(user)
+            #print(user_date)
+            user_weekday = int(convert_user_date(user).weekday())
+            #print(user_weekday)
+            delta_days = abs((user_date - today_date).days)
+            #print('delta_days', delta_days)
             if user_date < today_date:
-                if delta_days <=2 and (user_weekday == 5 or user_weekday == 6):
+                if (delta_days <=2 and user_weekday == 5 or user_weekday == 6):
                     names_0.append(user['name'])
                     print('names_0', names_0)
             else:
