@@ -28,7 +28,7 @@ def get_birthdays_per_week(users):
             delta_days = int(abs(user_date - today_date).days)
         
             if user_date < today_date:
-                if delta_days <=2 and (user_weekday == 5 or user_weekday == 6):
+                if (delta_days <=2 and user_weekday == 5 or user_weekday == 6):
                     names_0.append(user['name'])
                     print('names_0', names_0)
             else:
